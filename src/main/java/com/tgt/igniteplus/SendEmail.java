@@ -5,26 +5,23 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.Scanner;
-
-
 
 public class SendEmail {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("enter the username");
-        final String username = sc.nextLine();
-        System.out.println("enter the password");
-        final String password = sc.nextLine();
-        System.out.println("enter the fromEmail");
-        String fromEmail=sc.nextLine();
-        System.out.println("enter the toEmail");
-        String toEmail=sc.nextLine();
+    public static void main(String[] args) throws IOException {
 
+        FileInputStream fis = new FileInputStream("C:/Users/YASHASWINI/Downloads/Email/src/main/resources/Application.properties");
         Properties prop = new Properties();
+        prop.load(fis);
+
+        final String username = prop.getProperty("username");
+        final String password = prop.getProperty("password");
+        String fromEmail = prop.getProperty("fromEmail");
+        String toEmail = prop.getProperty("toEmail");
+
         prop.put("mail.smtp.host", "smtp.gmail.com");
         prop.put("mail.smtp.port", "587");
         prop.put("mail.smtp.auth", "true");
