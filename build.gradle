@@ -18,5 +18,6 @@ dependencies {
 
     compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.10'
     compile group: 'com.itextpdf.tool', name: 'xmlworker', version: '5.5.10'
+    compile group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
 
 }
