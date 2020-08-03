@@ -5,13 +5,14 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
 public class SendEmail {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String [] args) throws IOException {
 
         FileInputStream fis = new FileInputStream("C:/Users/YASHASWINI/Downloads/Email/src/main/resources/Application.properties");
         Properties prop = new Properties();
@@ -41,7 +42,7 @@ public class SendEmail {
             message.setFrom(new InternetAddress(fromEmail));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmail));
 
-            message.setSubject("Received Award");
+            message.setSubject("Received Awards");
 
             Multipart emailContent = new MimeMultipart();
 
